@@ -28,7 +28,48 @@ section {
   width: 200px;
   height: 200px;
 }
+.partners-list {
+  display: flex;
+  column-gap: 0.5em;
+  row-gap: 0.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.partners {
+  border: 1px solid hsl(0, 0%, 49%);
+  width: 150px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.partners img {
+  width: 100px;
+  height: 100;
+}
+.bg-smoke {
+  background-color: whitesmoke;
+}
 
+/* working on car service price list */
+.ex-m {
+  margin: 4em;
+}
+
+.list {
+  display: flex;
+  padding: 1em;
+}
+.service {
+  width: 80%;
+}
+.price {
+  width: 20%;
+}
+.dark {
+  background-color: #f2f2f2;
+}
 /* Mobile-specific styles */
 @media only screen and (max-width: 767px) {
   .feature-list {
