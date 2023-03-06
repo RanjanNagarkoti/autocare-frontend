@@ -72,7 +72,9 @@ section {
 }
 
 footer {
-  margin: 5em 10em;
+  padding: 5em 10em;
+  position: relative;
+  bottom: 0;
 }
 .social-menu {
   display: flex;
@@ -111,6 +113,24 @@ footer {
 .foot-copyright {
   color: #747c83;
   text-align: center;
+}
+.list-service-option {
+  text-align: center;
+  padding: 5em 0em;
+}
+.list-service-option h1 {
+  color: #4a4a4a;
+  line-height: 1.5em;
+}
+.list-service-option button {
+  padding: 7px 20px;
+  color: white;
+  border: none;
+  margin: 2em 0em;
+  background-color: tomato;
+}
+.list-service-option button:hover {
+  background-color: rgb(255, 79, 48);
 }
 /* Mobile-specific styles */
 @media only screen and (max-width: 767px) {
