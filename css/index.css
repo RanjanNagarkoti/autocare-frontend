@@ -132,6 +132,23 @@ footer {
 .list-service-option button:hover {
   background-color: rgb(255, 79, 48);
 }
+.sc-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1em;
+  column-gap: 1em;
+}
+.service-center {
+  border-radius: 5px;
+}
+.service-center img {
+  width: 100%;
+  object-fit: cover;
+}
+.service-center p {
+  text-align: start;
+  margin: 0.2em 0em;
+}
 /* Mobile-specific styles */
 @media only screen and (max-width: 767px) {
   .feature-list {
@@ -140,5 +157,11 @@ footer {
   }
   .foot-nav {
     display: block;
+  }
+  .sc-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2em;
+    column-gap: 1em;
   }
 }
