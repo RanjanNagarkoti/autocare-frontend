@@ -149,6 +149,63 @@ footer {
   text-align: start;
   margin: 0.2em 0em;
 }
+
+/* Navbar css codes from here */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0em 2em;
+  height: 8vh;
+  align-items: center;
+  border-bottom: 1px solid rgb(195, 195, 195);
+}
+.logo label {
+  font-weight: bold;
+  font-size: 20px;
+}
+.logo span {
+  color: tomato;
+}
+.menu,
+.auth-link {
+  display: flex;
+}
+.active {
+  border: 1px solid tomato;
+  color: tomato;
+  border-radius: 5px;
+}
+
+.menu a,
+.auth-link a {
+  color: #183153;
+  padding: 7px 14px;
+  font-size: 14px;
+}
+.menu li {
+  margin: 0em 1em;
+}
+
+.auth-link li {
+  margin: 0em 0.2em;
+}
+.menu a:hover {
+  transition: 0.5s;
+  border: 1px solid tomato;
+  color: tomato;
+  border-radius: 5px;
+}
+.auth-link li a {
+  padding: 7px 14px;
+  background-color: tomato;
+  border-radius: 5px;
+  color: #183153;
+}
+.auth-link li a:hover {
+  background-color: #183153;
+  color: tomato;
+  transition: 0.5s;
+}
 /* Mobile-specific styles */
 @media only screen and (max-width: 767px) {
   .feature-list {
