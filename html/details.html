@@ -5,9 +5,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autocare</title>
-    <link rel="stylesheet" href="../css/util.css" />
+    <link rel="stylesheet" href="../css/details.css" />
   </head>
   <body>
-    <h1>Detail page</h1>
+    <header class="header">
+      <h1>Garage Details</h1>
+    </header>
+    <nav class="navbar">
+      <ul>
+      </ul>
+      <button id="book-appointment">Book Appointment</button>
+    </nav>
+    <section class="hero">
+      <h1>Garage Name</h1>
+    </section>
+    <div class="container">
+      <section class="details">
+        <img src="https://dummyimage.com/300x300/333/fff.png" alt="Garage Image">
+        <h2>Garage Name</h2>
+        <p>Email: example@gmail.com</p>
+        <p>Contact: 1234567890</p>
+        <p>Location: 123 Main Street, City, State Zip</p>
+        <div class="rating">
+          <p>Rating:</p>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <div class="buttons">
+          <button>Book Appointment</button>
+        </div>
+      </section>
+      <section class="reviews">
+        <h2>Thoughts from their customers</h2>
+        <div class="review">
+          <div class="review-header">
+            <p class="reviewer-name">Reviewer Name</p>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <p class="review-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum semper mi quis tempus. Sed laoreet suscipit sapien, quis efficitur velit iaculis ut.</p>
+        </div>
+        <div class="review">
+          <div class="review-header">
+            <p class="reviewer-name">Reviewer Name</p>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <p class="review-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum semper mi quis tempus. Sed laoreet suscipit sapien, quis efficitur velit iaculis ut.</p>
+        </div>
+        <div class="review">
+          <div class="review-header">
+            <p class="reviewer-name">Reviewer Name</p>
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+          <p class="review-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum semper mi quis tempus. Sed laoreet suscipit sapien, quis efficitur velit iaculis ut.</p>
+        </div>
+        <div class="review-form">
+          <h2>Write a Review</h2>
+          <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <br>
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" required>
+              <option value="">Select a rating</option>
+              <option value="1">1 star</option>
+              <option value="2">2 stars</option>
+              <option value="3">3 stars</option>
+              <option value="4">4 stars</option>
+              <option value="5">5 stars</option>
+            </select>
+            <br>
+            <br>
+            <label for="review">Review</label>
+            <textarea id="review" name="review" placeholder="Write your review" required></textarea>
+            <button type="submit">Submit Review</button>
+          </form>
+        </div>
+      </section>
+    </div>
+    
+    <footer class="footer">
+      <p style="text-align: center;">&copy; 2023 Garage Name. All Rights Reserved.</p>
+    </footer>
   </body>
 </html>
