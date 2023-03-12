@@ -17,10 +17,7 @@
   <body>
     <section class="border row m-5 p-lg-4">
       <div class="col-6">
-        <img src="../img/nissan.jpg" alt="" class="garage-cover" />
-      </div>
-      <div class="col-6">
-        <form action="">
+        <form action="" id="my-form">
           <div class="row">
             <div class="col-12 mb-3">
               <label for="exampleInputEmail1" class="form-label"
@@ -53,26 +50,41 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <div class="row">
-                  <div class="col-3">
-                    <input type="checkbox" />
+                  <div class="col-1 ml-2">
+                    <input
+                      type="checkbox"
+                      value="500"
+                      class="service-select"
+                      aria-label="Oil change"
+                    />
                   </div>
-                  <div class="col-9">
+                  <div class="col-8">
                     <label for="">Test</label>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-3">
-                    <input type="checkbox" />
+                  <div class="col-1 ml-2">
+                    <input
+                      type="checkbox"
+                      value="1000"
+                      class="service-select"
+                      aria-label="Painting"
+                    />
                   </div>
-                  <div class="col-9">
+                  <div class="col-8">
                     <label for="">Test</label>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-3">
-                    <input type="checkbox" />
+                  <div class="col-1 ml-2">
+                    <input
+                      type="checkbox"
+                      value="1400"
+                      class="service-select"
+                      aria-label="brake change"
+                    />
                   </div>
-                  <div class="col-9">
+                  <div class="col-8">
                     <label for="">Test</label>
                   </div>
                 </div>
@@ -108,20 +120,61 @@
 
           <div class="mb-3">
             <label for="" class="form-check-label">Subscription</label>
-            <select name="" id="" class="form-control">
-              <option value="">3 Months</option>
-              <option value="">6 Months</option>
-              <option value="">12 Months</option>
-            </select>
+            <input
+              type="checkbox"
+              class="form-check mt-2 mb-2"
+              id="subCheckbox"
+            />
+
+            <div id="sub-row-to-hide" style="display: none">
+              <select name="" id="" class="form-control">
+                <option value="">3 Months</option>
+                <option value="">6 Months</option>
+                <option value="">12 Months</option>
+              </select>
+            </div>
           </div>
-          <a href="./last -checkout.html" class="btn btn-primary">Next</a>
+          <button class="btn btn-primary" onclick="displayService()">
+            Calculate
+          </button>
         </form>
+      </div>
+      <div class="col-6">
+        <img src="../img/checkout.jpg" alt="" class="col-12 mb-4" />
+        <div class="row mb-2 ml-1">
+          <div class="col-8"><b>Services</b></div>
+          <div class="col-4"><b>Price</b></div>
+        </div>
+        <div class="mb-1 ml-1" id="services-list"></div>
+        <div class="row mt-3 ml-1">
+          <div class="col-8"></div>
+          <div class="col-4">
+            <button
+              class="btn btn-primary"
+              onclick="handleSubmit()"
+              id="submit-button"
+              style="display: none"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
     <script>
+      //submit form
+      const form = document.getElementById("my-form");
+      const submitButton = document.getElementById("submit-button");
+      function handleSubmit() {
+        form.submit();
+      }
+
       var checkbox = document.getElementById("p_nd_d");
       var rowToHide = document.getElementById("row-to-hide");
+
+      var subCheckbox = document.getElementById("subCheckbox");
+      var subRowToHide = document.getElementById("sub-row-to-hide");
 
       checkbox.addEventListener("change", function () {
         if (this.checked) {
@@ -130,6 +183,67 @@
           rowToHide.style.display = "none";
         }
       });
+      subCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+          subRowToHide.style.display = "flex";
+        } else {
+          subRowToHide.style.display = "none";
+        }
+      });
+
+      //checkbox data
+      function displayService() {
+        const form = document.getElementById("my-form");
+        const checkboxes = form.getElementsByClassName("service-select");
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const selectedCheckboxes = Array.from(checkboxes).filter(
+            (checkbox) => checkbox.checked
+          );
+          const selectedValues = selectedCheckboxes.map(
+            (checkbox) => checkbox.value
+          );
+          const services = selectedCheckboxes.map((checkbox) => {
+            return {
+              value: checkbox.value,
+              ariaLabel: checkbox.getAttribute("aria-label"),
+            };
+          });
+          if (services.length <= 0) {
+            submitButton.style.display = "none";
+          } else {
+            submitButton.style.display = "block";
+          }
+          //Displaying data
+          let parent = document.getElementById("services-list");
+          let total = 0;
+          parent.innerHTML = "";
+          for (let i = 0; i < services.length; i++) {
+            total += parseInt(services[i].value);
+            parent.innerHTML += `
+            <div class="row mb-1 ml-1">
+              <div class="col-8">${services[i].ariaLabel}</div>
+              <div class="col-4">${services[i].value}</div>
+            </div>`;
+          }
+          //adding tax
+          let taxAmount = total * 0.1;
+          parent.innerHTML += `
+            <div class="row mb-1 ml-1">
+              <div class="col-8"><b>Tax</b></div>
+              <div class="col-4"><b>${taxAmount}</b></div>
+            </div>`;
+
+          //Total cost
+          parent.innerHTML += `
+            <div class="row mb-1 ml-1">
+              <div class="col-8"><b>Grand Total</b></div>
+              <div class="col-4"><b>${total + taxAmount}</b></div>
+            </div>`;
+        });
+      }
     </script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
