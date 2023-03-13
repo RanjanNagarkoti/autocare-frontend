@@ -53,9 +53,10 @@
                   <div class="col-1 ml-2">
                     <input
                       type="checkbox"
-                      value="500"
+                      value="1"
                       class="service-select"
                       aria-label="Oil change"
+                      data-services-price="5000"
                     />
                   </div>
                   <div class="col-8">
@@ -66,9 +67,10 @@
                   <div class="col-1 ml-2">
                     <input
                       type="checkbox"
-                      value="1000"
+                      value="2"
                       class="service-select"
                       aria-label="Painting"
+                      data-services-price="2500"
                     />
                   </div>
                   <div class="col-8">
@@ -79,9 +81,10 @@
                   <div class="col-1 ml-2">
                     <input
                       type="checkbox"
-                      value="1400"
+                      value="3"
                       class="service-select"
                       aria-label="brake change"
+                      data-services-price="1500"
                     />
                   </div>
                   <div class="col-8">
@@ -133,6 +136,15 @@
                 <option value="">12 Months</option>
               </select>
             </div>
+          </div>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="grand-total"
+              name="total"
+              hidden
+            />
           </div>
           <button class="btn btn-primary" onclick="displayService()">
             Calculate
@@ -207,7 +219,7 @@
           );
           const services = selectedCheckboxes.map((checkbox) => {
             return {
-              value: checkbox.value,
+              value: checkbox.getAttribute("data-services-price"),
               ariaLabel: checkbox.getAttribute("aria-label"),
             };
           });
@@ -217,8 +229,10 @@
             submitButton.style.display = "block";
           }
           //Displaying data
+          const uiGrandTotal = document.getElementById("grand-total");
           let parent = document.getElementById("services-list");
           let total = 0;
+
           parent.innerHTML = "";
           for (let i = 0; i < services.length; i++) {
             total += parseInt(services[i].value);
@@ -228,6 +242,7 @@
               <div class="col-4">${services[i].value}</div>
             </div>`;
           }
+
           //adding tax
           let taxAmount = total * 0.1;
           parent.innerHTML += `
@@ -242,6 +257,8 @@
               <div class="col-8"><b>Grand Total</b></div>
               <div class="col-4"><b>${total + taxAmount}</b></div>
             </div>`;
+
+          uiGrandTotal.value = total + taxAmount;
         });
       }
     </script>
