@@ -145,6 +145,13 @@
               name="total"
               hidden
             />
+            <input
+              type="text"
+              class="form-control"
+              id="services-id"
+              name="services-id"
+              hidden
+            />
           </div>
           <button class="btn btn-primary" onclick="displayService()">
             Calculate
@@ -221,6 +228,7 @@
             return {
               value: checkbox.getAttribute("data-services-price"),
               ariaLabel: checkbox.getAttribute("aria-label"),
+              id: checkbox.value,
             };
           });
           if (services.length <= 0) {
@@ -230,12 +238,14 @@
           }
           //Displaying data
           const uiGrandTotal = document.getElementById("grand-total");
+          const servicesIdField = document.getElementById("services-id");
           let parent = document.getElementById("services-list");
           let total = 0;
 
           parent.innerHTML = "";
           for (let i = 0; i < services.length; i++) {
             total += parseInt(services[i].value);
+            servicesIdField.value += services[i].id + ",";
             parent.innerHTML += `
             <div class="row mb-1 ml-1">
               <div class="col-8">${services[i].ariaLabel}</div>
