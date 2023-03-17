@@ -5,13 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AutoCare</title>
+    <link rel="stylesheet" href="../css/util.css">
     <link rel="stylesheet" href="../css/profile.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
       rel="stylesheet"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
+    <nav class="my-nav">
+      <div class="my-logo">
+        <label>Auto<span>Care</span></label>
+      </div>
+      <ul class="my-menu">
+        <li>
+          <a href="" class="my-active"
+            ><i class="fa-solid fa-house"></i> Home</a
+          >
+        </li>
+        <li><a href="">About Us</a></li>
+        <li>
+          <a href=""><i class="fa-solid fa-phone"></i> Contact Us</a>
+        </li>
+      </ul>
+      <ul class="my-auth-link">
+        <li><a href="./profile.html"><i class="fa-solid fa-user"></i></a></li>
+      </ul>
+    </nav>
     <div class="main-content">
       <!-- Header -->
       <div
@@ -27,44 +48,103 @@
         <span class="mask bg-gradient-default opacity-8"></span>
         <!-- Header container -->
         <div class="container-fluid d-flex align-items-center">
-          <div class="row">
-            <div class="col-lg-7 col-md-10">
-              <h1 class="display-2 text-white">Hello Jesse</h1>
-              <p class="text-white mt-0 mb-5">
-                This is your profile page. You can see the progress you've made
-                with your work and manage your projects or assigned tasks
-              </p>
-              <a href="#!" class="btn btn-info">Edit profile</a>
-            </div>
-          </div>
+          <h1 class="text-white col-md-10">Hello, Ranjan Nagarkoti!</h1>
         </div>
       </div>
       <!-- Page content -->
       <div class="container-fluid mt--7">
-        <div class="col-xl-12 order-xl-1">
-          <div class="card bg-secondary shadow">
-            <div class="card-header bg-white border-0">
-              <div class="row align-items-center">
-                <div class="col-8">
-                  <h3 class="mb-0">Your Booking history</h3>
+        <div class="row">
+          <div class="col-xl-8 order-xl-1">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-12">
+                    <h3 class="mb-0">Active Booking</h3>
+                  </div>
                 </div>
-                <div class="col-4 text-right">
-                  <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+              </div>
+              <div class="card-body bg-body row">
+                <img src="../img/aa.webp" class="col-4" alt="">
+                <div class="text-content col-8">
+                  <h6>Garage name: Ramesh auto center</h6>
+                  <p>Date: 2023-03-17</p>
+                  <p>Services: basic, ac, painting, tinting</p>
+                  <p>Subscription: Yes</p>
+                  <p>Pick and drop: Yes</p>
                 </div>
               </div>
             </div>
-            <div class="card-body">
-              <!-- booking history table here -->
-              <div class="row">
-                <div class="col-3">Ranjan</div>
-                <div class="col-3">Ranjan</div>
-                <div class="col-3">Ranjan</div>
-                <div class="col-3">Ranjan</div>
+          </div>
+          <div class="col-xl-8 order-xl-1">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-12">
+                    <h3 class="mb-0">Your Booking history</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body bg-body">
+                <!-- booking history table here -->
+                <table class="table bg-light">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Garage</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Servies</th>
+                      <th scope="col">Pick and drop</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Ramesh Auto Center</td>
+                      <td>2023-03-17</td>
+                      <td>Basic, AC</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Laxmi Hyundai service center</td>
+                      <td>2023-03-17</td>
+                      <td>Basic, AC</td>
+                      <td>Yes</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Nissan</td>
+                      <td>2023-03-17</td>
+                      <td>Basic, AC</td>
+                      <td>Yes</td> 
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 order-xl-1">
+            <div class="card bg-secondary shadow">
+              <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                  <div class="col-12">
+                    <h3 class="mb-0">Subscription</h3>
+                    <div class="autocare-sub row mt-2 mb-2 border p-2">
+                      <img src="../img/aa.webp" class="col-4" alt="">
+                      <div class="autocare-sub-text col-8">
+                        <h6 class="text-black">Garage: Ramesh Auto Center</h6>
+                        <p>Next servicing date: 2023-03-17</p>
+                        <p>Price NRP 10,000</p>
+                      </div>
+                    </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="https://kit.fontawesome.com/050a1d7192.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
