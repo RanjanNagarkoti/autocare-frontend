@@ -15,6 +15,26 @@
     />
   </head>
   <body>
+    <nav class="my-nav">
+      <div class="my-logo">
+        <label>Auto<span>Care</span></label>
+      </div>
+      <ul class="my-menu">
+        <li>
+          <a href="" class="my-active"
+            ><i class="fa-solid fa-house"></i> Home</a
+          >
+        </li>
+        <li><a href="">About Us</a></li>
+        <li>
+          <a href=""><i class="fa-solid fa-phone"></i> Contact Us</a>
+        </li>
+      </ul>
+      <ul class="my-auth-link">
+        <li><a href="./html/login.html">Login</a></li>
+        <li><a href="./html/signup.html">Sign Up</a></li>
+      </ul>
+    </nav>
     <section class="border row m-5 p-lg-4">
       <div class="col-6">
         <form action="" id="my-form">
@@ -94,6 +114,18 @@
               </div>
             </div>
           </div>
+          <div class="mb-3 row">
+            <div class="col-6 mb-3">
+              <label for="exampleInputEmail1" class="form-label">Brand</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="col-6 mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Car Model</label
+              >
+              <input type="text" class="form-control" />
+            </div>
+          </div>
           <div class="mb-3">
             <label for="p_nd_d">Pick up and drop</label>
             <input
@@ -109,14 +141,6 @@
               <label for="exampleInputEmail1" class="form-label"
                 >Location</label
               >
-              <input type="text" class="form-control" />
-            </div>
-            <div class="col-4 mb-3">
-              <label for="exampleInputEmail1" class="form-label">Brand</label>
-              <input type="text" class="form-control" />
-            </div>
-            <div class="col-4 mb-3">
-              <label for="exampleInputEmail1" class="form-label">Brand</label>
               <input type="text" class="form-control" />
             </div>
           </div>
@@ -143,6 +167,13 @@
               class="form-control"
               id="grand-total"
               name="total"
+              hidden
+            />
+            <input
+              type="text"
+              class="form-control"
+              id="services-id"
+              name="services-id"
               hidden
             />
           </div>
@@ -173,7 +204,53 @@
         </div>
       </div>
     </section>
+    <!-- footer -->
+    <footer class="bg-smoke">
+      <ul class="social-menu">
+        <li>
+          <a href="./html/garage-list.html"
+            ><i class="fa-brands fa-facebook-f"></i> Facebook</a
+          >
+        </li>
+        <li>
+          <a href="./html//details.html">
+            <i class="fa-brands fa-instagram"></i> Instagram</a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i> Linkedin</a>
+        </li>
+      </ul>
+      <div class="foot-nav">
+        <div class="service-nav">
+          <b>Popular Services</b>
+          <ul>
+            <li><a href="#">All Service</a></li>
+            <li><a href="#">General Service</a></li>
+            <li><a href="#">Custom Repairs</a></li>
+            <li><a href="#">Car Cleaning</a></li>
+            <li><a href="#">AC/Heater Service</a></li>
+            <li><a href="#">Denting And Painting</a></li>
+          </ul>
+        </div>
+        <div class="comapny-nav">
+          <b>Company</b>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Faq</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Term & Condition</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
 
+      <p class="foot-copyright">&#169; 2023 All Rights Reserved | Autocare</p>
+    </footer>
     <script>
       //submit form
       const form = document.getElementById("my-form");
@@ -221,6 +298,7 @@
             return {
               value: checkbox.getAttribute("data-services-price"),
               ariaLabel: checkbox.getAttribute("aria-label"),
+              id: checkbox.value,
             };
           });
           if (services.length <= 0) {
@@ -230,10 +308,12 @@
           }
           //Displaying data
           const uiGrandTotal = document.getElementById("grand-total");
+          const servicesIdField = document.getElementById("services-id");
           let parent = document.getElementById("services-list");
           let total = 0;
 
           parent.innerHTML = "";
+          servicesIdField.value = "";
           for (let i = 0; i < services.length; i++) {
             total += parseInt(services[i].value);
             parent.innerHTML += `
